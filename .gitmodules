@@ -1,0 +1,3 @@
+[submodule "lib/querystring"]
+	path = lib/querystring
+	url = git://github.com/svendahlstrand/querystring.git
