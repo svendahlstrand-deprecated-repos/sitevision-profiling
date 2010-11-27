@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+cat lib/querystring/src/query-string.js src/profiling.js src/bookmarklet.js > build/bookmarklet.js
