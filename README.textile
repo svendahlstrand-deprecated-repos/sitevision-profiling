@@ -1,3 +1,15 @@
 h1. profiling
 
 A bookmarklet to turn profiling on and off in SiteVision.
+
+h2. Installation
+
+Installation is easy - "follow the instructions on this page":http://svendahlstrand.github.com/profiling.
+
+h2. Usage
+
+Use the bookmarklet to toggle profiling on and off.
+
+h2. Known limitations
+
+When there is no profiling query string present you have to use the bookmarklet twice to turn profiling off. This will be fixed.
