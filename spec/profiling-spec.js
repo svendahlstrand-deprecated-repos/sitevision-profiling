@@ -15,11 +15,30 @@ describe('Profiling', function() {
     expect(profiling.on()).toBe(true);
   });
 
-  it('should be able to toggle profiling', function() {
+  it('should switch on when no query string exists', function() {
     spyOn(profiling.queryString, 'set');
+    profiling.queryString.raw = '';
 
     profiling.toggle();
 
-    expect(profiling.queryString.set).toHaveBeenCalled();
+    expect(profiling.queryString.set).toHaveBeenCalledWith('profiling', true);
+  });
+
+  it('should switch on when profiling is false', function() {
+    spyOn(profiling.queryString, 'set');
+    profiling.queryString.raw = '?profiling=false';
+
+    profiling.toggle();
+
+    expect(profiling.queryString.set).toHaveBeenCalledWith('profiling', true);
+  });
+
+  it('should switch off when profiling is true', function() {
+    spyOn(profiling.queryString, 'set');
+    profiling.queryString.raw = '?profiling=true';
+
+    profiling.toggle();
+
+    expect(profiling.queryString.set).toHaveBeenCalledWith('profiling', false);
   });
 });
