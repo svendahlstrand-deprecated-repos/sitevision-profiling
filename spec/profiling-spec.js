@@ -3,39 +3,29 @@ describe('Profiling', function() {
 
   beforeEach(function() {
     profiling = new Profiling();
+    loadFixtures("fixtures/table.html");
+  });
+
+  afterEach(function() {
+    jasmine.getFixtures().cleanUp();
   });
 
   it('should have a query string', function() {
     expect(profiling.queryString).toBeDefined();
   });
 
-  it('should know if profiling is on', function() {
-    profiling.queryString.raw = '?profiling=true';
-
-    expect(profiling.on()).toBe(true);
-  });
-
-  it('should switch on when no query string exists', function() {
+  it('should switch on when profiling is off', function() {
+    // The cleanup will remove the Profiling results table - simulates profiling off.
+    jasmine.getFixtures().cleanUp();
     spyOn(profiling.queryString, 'set');
-    profiling.queryString.raw = '';
 
     profiling.toggle();
 
     expect(profiling.queryString.set).toHaveBeenCalledWith('profiling', true);
   });
 
-  it('should switch on when profiling is false', function() {
+  it('should switch off when profiling is on', function() {
     spyOn(profiling.queryString, 'set');
-    profiling.queryString.raw = '?profiling=false';
-
-    profiling.toggle();
-
-    expect(profiling.queryString.set).toHaveBeenCalledWith('profiling', true);
-  });
-
-  it('should switch off when profiling is true', function() {
-    spyOn(profiling.queryString, 'set');
-    profiling.queryString.raw = '?profiling=true';
 
     profiling.toggle();
 

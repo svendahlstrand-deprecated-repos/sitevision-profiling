@@ -2,9 +2,13 @@ function Profiling() {
   this.queryString = new QueryString();
 
   this.on = function() {
-    var mode = this.queryString.get('profiling');
+    var elements = document.getElementsByTagName('table');
 
-    return (mode == 'true') ? true : false;
+    if (elements.length < 1) { return false; }
+
+    var index = elements[0].textContent.search(/Profiling results/i);
+
+    return (index != -1);
   };
 
   this.toggle = function() {
