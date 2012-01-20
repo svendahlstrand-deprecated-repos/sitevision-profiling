@@ -4,7 +4,7 @@ A bookmarklet to turn profiling on and off in SiteVision.
 
 h2. Installation
 
-Installation is easy - "follow the instructions on this page":http://svendahlstrand.github.com/profiling.
+Installation is easy - "follow the instructions on this page":http://svendahlstrand.github.com/sitevision-profiling.
 
 h2. Usage
 
